@@ -1,6 +1,6 @@
 {
   "name": "advanced-js-kit",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A modern, tree-shakable utility kit for JS/TS projects",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -44,8 +44,10 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "clean": "rm -rf dist",
-    "prepublishOnly": "npm run clean && npm run build"
+    "clean": "npx rimraf dist",
+    "prepublishOnly": "npm run clean && npm run build",
+     "release:patch": "npm version patch",
+    "postversion": "git push && git push --tags && npm publish"
   },
   "devDependencies": {
     "tsup": "^7.3.0",
