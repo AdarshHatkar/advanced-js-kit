@@ -2,37 +2,42 @@
   "name": "advanced-js-kit",
   "version": "0.1.0",
   "description": "A modern, tree-shakable utility kit for JS/TS projects",
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typings": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "require": "./dist/index.js"
     },
     "./array/chunk": {
       "types": "./dist/array/chunk.d.ts",
       "import": "./dist/array/chunk.mjs",
-      "require": "./dist/array/chunk.cjs"
+      "require": "./dist/array/chunk.js"
     },
     "./string/capitalize": {
       "types": "./dist/string/capitalize.d.ts",
       "import": "./dist/string/capitalize.mjs",
-      "require": "./dist/string/capitalize.cjs"
+      "require": "./dist/string/capitalize.js"
     },
     "./number/clamp": {
       "types": "./dist/number/clamp.d.ts",
       "import": "./dist/number/clamp.mjs",
-      "require": "./dist/number/clamp.cjs"
+      "require": "./dist/number/clamp.js"
     }
   },
-  "files": ["dist"],
+  "files": ["dist", "src"],
   "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build"
   },
   "devDependencies": {
     "tsup": "^7.3.0",
