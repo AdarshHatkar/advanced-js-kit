@@ -2,35 +2,50 @@
   "name": "advanced-js-kit",
   "version": "1.0.0",
   "description": "A modern, tree-shakable utility kit for JS/TS projects",
+  "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "typings": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "array/chunk": ["./dist/array/chunk.d.ts"],
+      "string/capitalize": ["./dist/string/capitalize.d.ts"],
+      "number/clamp": ["./dist/number/clamp.d.ts"],
+      "network/port": ["./dist/network/port.d.ts"],
+      "sleep/sleep": ["./dist/sleep/sleep.d.ts"]
+    }
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./array/chunk": {
       "types": "./dist/array/chunk.d.ts",
-      "import": "./dist/array/chunk.mjs",
-      "require": "./dist/array/chunk.js"
+      "import": "./dist/array/chunk.js",
+      "require": "./dist/array/chunk.cjs"
     },
     "./string/capitalize": {
       "types": "./dist/string/capitalize.d.ts",
-      "import": "./dist/string/capitalize.mjs",
-      "require": "./dist/string/capitalize.js"
+      "import": "./dist/string/capitalize.js",
+      "require": "./dist/string/capitalize.cjs"
     },
     "./number/clamp": {
       "types": "./dist/number/clamp.d.ts",
-      "import": "./dist/number/clamp.mjs",
-      "require": "./dist/number/clamp.js"
+      "import": "./dist/number/clamp.js",
+      "require": "./dist/number/clamp.cjs"
     },
     "./network/port": {
       "types": "./dist/network/port.d.ts",
-      "import": "./dist/network/port.mjs",
-      "require": "./dist/network/port.js"
+      "import": "./dist/network/port.js",
+      "require": "./dist/network/port.cjs"
+    },
+    "./sleep/sleep": {
+      "types": "./dist/sleep/sleep.d.ts",
+      "import": "./dist/sleep/sleep.js",
+      "require": "./dist/sleep/sleep.cjs"
     }
   },
   "files": [
