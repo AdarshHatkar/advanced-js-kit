@@ -1,0 +1,41 @@
+{
+  "name": "advanced-js-kit",
+  "version": "0.1.0",
+  "description": "A modern, tree-shakable utility kit for JS/TS projects",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./array/chunk": {
+      "types": "./dist/array/chunk.d.ts",
+      "import": "./dist/array/chunk.mjs",
+      "require": "./dist/array/chunk.cjs"
+    },
+    "./string/capitalize": {
+      "types": "./dist/string/capitalize.d.ts",
+      "import": "./dist/string/capitalize.mjs",
+      "require": "./dist/string/capitalize.cjs"
+    },
+    "./number/clamp": {
+      "types": "./dist/number/clamp.d.ts",
+      "import": "./dist/number/clamp.mjs",
+      "require": "./dist/number/clamp.cjs"
+    }
+  },
+  "files": ["dist"],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "tsup": "^7.3.0",
+    "typescript": "^5.4.0"
+  }
+}
