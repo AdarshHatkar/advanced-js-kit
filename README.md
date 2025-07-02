@@ -94,49 +94,50 @@ This package provides excellent IDE support with:
 
 ## API Reference
 
-### Array Utilities
+### 📚 Package Documentation
 
-#### `chunk<T>(array: T[], size: number): T[][]`
-Splits an array into chunks of a specified size.
+For comprehensive documentation with examples, advanced usage patterns, and best practices, see the individual package documentation:
 
-### String Utilities
+- **[🔢 Array Utilities](./src/array/array.md)** - Array manipulation and chunking utilities
+- **[🌐 Network Utilities](./src/network/network.md)** - Port management and connectivity testing
+- **[🔢 Number Utilities](./src/number/number.md)** - Number clamping and range validation
+- **[⏰ Sleep Utilities](./src/sleep/sleep.md)** - Advanced sleep and timing functions
+- **[📝 String Utilities](./src/string/string.md)** - String manipulation and formatting
+- **[🔐 JWT Utilities](./src/jwt/jwt.md)** - JSON Web Token operations
 
-#### `capitalize(str: string): string`
-Capitalizes the first letter of a string.
+### Quick Reference
 
-#### `capitalizeWords(str: string): string`
-Capitalizes the first letter of each word in a string.
+#### Array Utilities
+- `chunk<T>(array: T[], size: number): T[][]` - Splits an array into chunks of a specified size
 
-### Number Utilities
+#### String Utilities
+- `capitalize(str: string): string` - Capitalizes the first letter of a string
+- `capitalizeWords(str: string): string` - Capitalizes the first letter of each word
 
-#### `clamp(number: number, lower: number, upper: number): number`
-Clamps a number within the inclusive lower and upper bounds.
+#### Number Utilities
+- `clamp(number: number, lower: number, upper: number): number` - Clamps a number within bounds
+- `inRange(number: number, lower: number, upper: number): boolean` - Checks if number is in range
 
-#### `inRange(number: number, lower: number, upper: number): boolean`
-Checks if a number is within the inclusive range.
+#### Sleep Utilities
+- `sleep(params: TSleepParams): Promise<void>` - Advanced sleep with flexible options
+- `sleepMs(ms: number): Promise<void>` - Sleep for milliseconds
+- `sleepSeconds(seconds: number): Promise<void>` - Sleep for seconds
+- `sleepMinutes(minutes: number): Promise<void>` - Sleep for minutes
+- `sleepUntil(unixTimestamp: number): Promise<void>` - Sleep until timestamp
 
-### Sleep Utilities
+#### Network Utilities
+- `isPortInUse(port: number, options?): Promise<boolean>` - Check if port is in use
+- `isPortAvailable(port: number, options?): Promise<boolean>` - Check if port is available
+- `findAvailablePort(options?): Promise<number>` - Find an available port
+- `checkMultiplePorts(ports: number[], options?): Promise<Map<number, boolean>>` - Check multiple ports
+- `waitForPort(port: number, state: string, options?): Promise<void>` - Wait for port state
 
-#### `sleep(params: TSleepParams): Promise<void>`
-Advanced sleep function with flexible delay options:
-- Fixed delays: `{ milliseconds: 1000 }`, `{ seconds: 5 }`, `{ minutes: 2 }`
-- Combined delays: `{ seconds: 1, milliseconds: 500 }`
-- Random delays: `{ random: { seconds: { min: 1, max: 5 } } }`
-- Sleep until timestamp: `{ until: { unixTimestamp: 1672531200 } }`
-
-#### `sleepMs(ms: number): Promise<void>`
-Sleep for a specific number of milliseconds.
-
-#### `sleepSeconds(seconds: number): Promise<void>`
-Sleep for a specific number of seconds.
-
-#### `sleepMinutes(minutes: number): Promise<void>`
-Sleep for a specific number of minutes.
-
-#### `sleepUntil(unixTimestamp: number): Promise<void>`
-Sleep until a specific Unix timestamp (in seconds).
-
-### Network Utilities
+#### JWT Utilities
+- `jwtSign<T>(payload: T, secret: string, options?): Promise<string>` - Sign JWT token
+- `jwtVerify<T>(token: string, secret: string, options?): Promise<T | null>` - Verify JWT token
+- `jwtDecode<T>(token: string, options?): T | null` - Decode JWT without verification
+- `jwtIsExpired(token: string): boolean | null` - Check if token is expired
+- `jwtTimeUntilExpiry(token: string): number | null` - Get time until expiration
 
 ## Development
 
