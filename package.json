@@ -48,7 +48,7 @@
     "prepublishOnly": "npm run clean && npm run build"
   },
   "devDependencies": {
-    "tsup": "^7.3.0",
+    "tsup": "^8.5.0",
     "typescript": "^5.4.0"
   },
   "dependencies": {
