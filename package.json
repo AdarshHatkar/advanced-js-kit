@@ -9,11 +9,24 @@
   "typings": "./dist/index.d.ts",
   "typesVersions": {
     "*": {
-      "array/chunk": ["./dist/array/chunk.d.ts"],
-      "string/capitalize": ["./dist/string/capitalize.d.ts"],
-      "number/clamp": ["./dist/number/clamp.d.ts"],
-      "network/port": ["./dist/network/port.d.ts"],
-      "sleep/sleep": ["./dist/sleep/sleep.d.ts"]
+      "array/chunk": [
+        "./dist/array/chunk.d.ts"
+      ],
+      "string/capitalize": [
+        "./dist/string/capitalize.d.ts"
+      ],
+      "number/clamp": [
+        "./dist/number/clamp.d.ts"
+      ],
+      "network/port": [
+        "./dist/network/port.d.ts"
+      ],
+      "sleep/sleep": [
+        "./dist/sleep/sleep.d.ts"
+      ],
+      "jwt/jwt": [
+        "./dist/jwt/jwt.d.ts"
+      ]
     }
   },
   "exports": {
@@ -46,6 +59,11 @@
       "types": "./dist/sleep/sleep.d.ts",
       "import": "./dist/sleep/sleep.js",
       "require": "./dist/sleep/sleep.cjs"
+    },
+    "./jwt/jwt": {
+      "types": "./dist/jwt/jwt.d.ts",
+      "import": "./dist/jwt/jwt.js",
+      "require": "./dist/jwt/jwt.cjs"
     }
   },
   "files": [
@@ -61,14 +79,16 @@
     "dev": "tsup --watch",
     "clean": "npx rimraf dist",
     "prepublishOnly": "npm run clean && npm run build",
-     "release:patch": "npm version patch",
+    "release:patch": "npm version patch",
     "postversion": "git push && git push --tags && npm publish"
   },
   "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.10",
     "tsup": "^7.3.0",
     "typescript": "^5.4.0"
   },
   "dependencies": {
-    "is-port-reachable": "^4.0.0"
+    "is-port-reachable": "^4.0.0",
+    "jsonwebtoken": "^9.0.2"
   }
 }
