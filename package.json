@@ -1,7 +1,35 @@
 {
   "name": "advanced-js-kit",
   "version": "1.0.0",
-  "description": "A modern, tree-shakable utility kit for JS/TS projects",
+  "description": "Modern TypeScript utility library with tree-shaking support - Array, String, Number, Network, Sleep, and JWT utilities for JavaScript and TypeScript projects",
+  "keywords": [
+    "typescript",
+    "javascript",
+    "utilities",
+    "utility-library",
+    "tree-shaking",
+    "esm",
+    "array-utils",
+    "string-utils",
+    "number-utils",
+    "network-utils",
+    "sleep",
+    "jwt",
+    "json-web-token",
+    "modern-js",
+    "typescript-library",
+    "js-kit",
+    "functional",
+    "chunking",
+    "capitalize",
+    "clamp",
+    "port-checker",
+    "async-sleep",
+    "promise-utils",
+    "node",
+    "browser",
+    "universal"
+  ],
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -71,6 +99,22 @@
     "src"
   ],
   "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AdarshHatkar/advanced-js-kit.git"
+  },
+  "homepage": "https://github.com/AdarshHatkar/advanced-js-kit#readme",
+  "bugs": {
+    "url": "https://github.com/AdarshHatkar/advanced-js-kit/issues"
+  },
+  "author": {
+    "name": "Adarsh Hatkar",
+    "url": "https://github.com/AdarshHatkar"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "publishConfig": {
     "access": "public"
   },

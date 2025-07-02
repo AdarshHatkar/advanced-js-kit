@@ -1,5 +1,12 @@
 # Advanced JavaScript Kit
 
+> **Modern TypeScript utility library with tree-shaking support** - Comprehensive collection of array, string, number, network, sleep, and JWT utilities for JavaScript and TypeScript projects.
+
+[![npm version](https://badge.fury.io/js/advanced-js-kit.svg)](https://www.npmjs.com/package/advanced-js-kit)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Tree Shakable](https://img.shields.io/badge/Tree--Shakable-✓-brightgreen.svg)](https://webpack.js.org/guides/tree-shaking/)
+
 A collection of advanced JavaScript/TypeScript utility functions for modern development.
 
 ## Features
@@ -15,6 +22,18 @@ A collection of advanced JavaScript/TypeScript utility functions for modern deve
 
 ```bash
 npm install advanced-js-kit
+```
+
+**Alternative package managers:**
+```bash
+# Yarn
+yarn add advanced-js-kit
+
+# pnpm
+pnpm add advanced-js-kit
+
+# Bun
+bun add advanced-js-kit
 ```
 
 ## Usage
