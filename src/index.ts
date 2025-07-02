@@ -7,5 +7,8 @@ export * from './string/capitalize';
 // Number utilities
 export * from './number/clamp';
 
+// Network utilities
+export * from './network/port';
+
 // Sleep utility
 export * from './sleep/sleep';

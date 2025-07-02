@@ -26,9 +26,17 @@
       "types": "./dist/number/clamp.d.ts",
       "import": "./dist/number/clamp.mjs",
       "require": "./dist/number/clamp.js"
+    },
+    "./network/port": {
+      "types": "./dist/network/port.d.ts",
+      "import": "./dist/network/port.mjs",
+      "require": "./dist/network/port.js"
     }
   },
-  "files": ["dist", "src"],
+  "files": [
+    "dist",
+    "src"
+  ],
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
@@ -42,5 +50,8 @@
   "devDependencies": {
     "tsup": "^7.3.0",
     "typescript": "^5.4.0"
+  },
+  "dependencies": {
+    "is-port-reachable": "^4.0.0"
   }
 }
