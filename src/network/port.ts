@@ -1,4 +1,5 @@
 import isPortReachable from "is-port-reachable";
+import { assertNodeEnvironment, EnvironmentError } from "../utils/environment";
 
 /**
  * Options for port checking operations
@@ -70,6 +71,9 @@ export const isPortInUse = async (
   port: number,
   options: PortCheckOptions = {}
 ): Promise<boolean> => {
+  // Check if running in Node.js environment
+  assertNodeEnvironment();
+  
   validatePort(port);
   
   const { host = 'localhost', timeout = 5000 } = options;

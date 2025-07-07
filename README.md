@@ -9,6 +9,16 @@
 
 A collection of advanced JavaScript/TypeScript utility functions for modern development.
 
+## 🌐 Environment Compatibility
+
+This library is designed to work across multiple JavaScript environments:
+
+- **✅ Universal**: Array, String, Number, Sleep, Time, and Environment utilities work in **Node.js**, **Browser**, and **Web Workers**
+- **🟡 Node.js Only**: Network and JWT utilities require **Node.js** environment
+- **🔴 Browser Only**: Currently no browser-specific utilities
+
+> **Important**: Node.js-only modules will throw `EnvironmentError` when used in non-Node.js environments.
+
 ## Features
 
 - 🚀 **TypeScript Support** - Full TypeScript support with type definitions
@@ -17,6 +27,7 @@ A collection of advanced JavaScript/TypeScript utility functions for modern deve
 - 📖 **Well Documented** - JSDoc comments for all functions
 - 🔧 **Modern Build** - Built with tsup for optimal bundling
 - 💡 **Excellent IDE Support** - Full auto-completion and IntelliSense support
+- 🌐 **Cross-Platform** - Works in Node.js, browsers, and web workers
 
 ## Installation
 
@@ -38,8 +49,10 @@ bun add advanced-js-kit
 
 ## Usage
 
+### Universal Modules (Work Everywhere)
+
 ```typescript
-import { chunk, capitalize, clamp, sleep, sleepMs } from 'advanced-js-kit';
+import { chunk, capitalize, clamp, sleep } from 'advanced-js-kit';
 
 // Array utilities
 const chunkedArray = chunk([1, 2, 3, 4, 5], 2);
@@ -54,8 +67,43 @@ const clampedNumber = clamp(15, 0, 10);
 // Result: 10
 
 // Sleep utilities
-await sleepMs(1000); // Sleep for 1 second
 await sleep({ seconds: 2, milliseconds: 500 }); // Sleep for 2.5 seconds
+```
+
+### Environment-Specific Usage
+
+```typescript
+import { 
+  isNodeEnvironment, 
+  EnvironmentError 
+} from 'advanced-js-kit';
+
+// Check environment before using Node.js-only features
+if (isNodeEnvironment()) {
+  // These modules only work in Node.js
+  const { isPortInUse } = await import('advanced-js-kit/network/port');
+  const { jwtSign } = await import('advanced-js-kit/jwt/jwt');
+  
+  const portInUse = await isPortInUse(3000);
+  const token = await jwtSign({ userId: '123' }, 'secret');
+} else {
+  console.log('Network and JWT utilities require Node.js');
+}
+```
+
+### Error Handling
+
+```typescript
+import { jwtVerify, EnvironmentError } from 'advanced-js-kit';
+
+try {
+  const payload = await jwtVerify(token, secret);
+} catch (error) {
+  if (error instanceof EnvironmentError) {
+    console.log(`Feature not available: ${error.message}`);
+    console.log(`Required: ${error.requiredEnvironment}, Current: ${error.currentEnvironment}`);
+  }
+}
 ```
 
 ### Tree-shaking Support
@@ -67,8 +115,30 @@ You can also import individual functions for better tree-shaking:
 import { chunk } from 'advanced-js-kit/array/chunk';
 import { capitalize } from 'advanced-js-kit/string/capitalize';
 import { clamp } from 'advanced-js-kit/number/clamp';
-import { sleep, sleepMs } from 'advanced-js-kit/sleep/sleep';
+import { sleep } from 'advanced-js-kit/sleep/sleep';
 ```
+
+## 📋 Available Modules
+
+### ✅ Universal Modules (Node.js + Browser + Web Workers)
+
+| Module | Functions | Description |
+|--------|-----------|-------------|
+| `array/chunk` | `chunk` | Split arrays into chunks of specified size |
+| `string/capitalize` | `capitalize`, `capitalizeWords` | String capitalization utilities |
+| `number/clamp` | `clamp`, `inRange` | Number range utilities |
+| `sleep/sleep` | `sleep` | Promise-based sleep with multiple time units |
+| `time/time` | `convertToSeconds` | Time conversion utilities |
+| `utils/environment` | `isNodeEnvironment`, `isBrowserEnvironment`, `getEnvironment` | Environment detection |
+
+### 🟡 Node.js Only Modules
+
+| Module | Functions | Description |
+|--------|-----------|-------------|
+| `network/port` | `isPortInUse`, `isPortAvailable`, `findAvailablePort` | Port checking and management |
+| `jwt/jwt` | `jwtSign`, `jwtVerify` | JSON Web Token operations |
+
+> **Note**: Node.js-only modules will throw `EnvironmentError` when used in non-Node.js environments.
 
 ## TypeScript Configuration
 

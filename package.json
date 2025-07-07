@@ -57,6 +57,9 @@
       ],
       "time/time": [
         "./dist/time/time.d.ts"
+      ],
+      "utils/environment": [
+        "./dist/utils/environment.d.ts"
       ]
     }
   },
@@ -100,6 +103,11 @@
       "types": "./dist/time/time.d.ts",
       "import": "./dist/time/time.js",
       "require": "./dist/time/time.cjs"
+    },
+    "./utils/environment": {
+      "types": "./dist/utils/environment.d.ts",
+      "import": "./dist/utils/environment.js",
+      "require": "./dist/utils/environment.cjs"
     }
   },
   "files": [

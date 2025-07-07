@@ -1,5 +1,6 @@
 import * as jsonwebtoken from "jsonwebtoken";
 import { JwtPayload, VerifyOptions, SignOptions, Secret, SignCallback } from "jsonwebtoken";
+import { assertNodeEnvironment } from "../utils/environment";
 
 /**
  * Error thrown when JWT operations fail
@@ -64,6 +65,9 @@ export async function jwtVerify<T extends JwtTokenPayload = JwtTokenPayload>(
     secret: Secret,
     options: JwtVerifyOptions = {}
 ): Promise<T | null> {
+    // Check if running in Node.js environment
+    assertNodeEnvironment();
+    
     const { throwOnError = true, ...verifyOptions } = options;
 
     return new Promise<T | null>((resolve, reject) => {
@@ -129,6 +133,9 @@ export async function jwtSign<T extends Record<string, any> = Record<string, any
     secret: Secret,
     options: JwtSignOptions = {}
 ): Promise<string> {
+    // Check if running in Node.js environment
+    assertNodeEnvironment();
+    
     const { defaultExpiresIn, ...signOptions } = options;
 
     return new Promise<string>((resolve, reject) => {
