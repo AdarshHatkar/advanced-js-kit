@@ -15,3 +15,6 @@ export * from './sleep/sleep';
 
 // JWT utilities
 export * from './jwt/jwt';
+
+// Time utilities
+export * from './time/time';
