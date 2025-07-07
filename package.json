@@ -54,6 +54,9 @@
       ],
       "jwt/jwt": [
         "./dist/jwt/jwt.d.ts"
+      ],
+      "time/time": [
+        "./dist/time/time.d.ts"
       ]
     }
   },
@@ -92,6 +95,11 @@
       "types": "./dist/jwt/jwt.d.ts",
       "import": "./dist/jwt/jwt.js",
       "require": "./dist/jwt/jwt.cjs"
+    },
+    "./time/time": {
+      "types": "./dist/time/time.d.ts",
+      "import": "./dist/time/time.js",
+      "require": "./dist/time/time.cjs"
     }
   },
   "files": [
