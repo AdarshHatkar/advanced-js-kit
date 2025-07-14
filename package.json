@@ -33,6 +33,7 @@
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
+  "react-native": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "typings": "./dist/index.d.ts",
   "typesVersions": {
@@ -72,56 +73,67 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
+      "react-native": "./dist/index.js",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
     "./node": {
       "types": "./dist/node.d.ts",
+      "react-native": "./dist/node.js",
       "import": "./dist/node.js",
       "require": "./dist/node.cjs"
     },
     "./browser": {
       "types": "./dist/browser.d.ts",
+      "react-native": "./dist/browser.js",
       "import": "./dist/browser.js",
       "require": "./dist/browser.cjs"
     },
     "./array/chunk": {
       "types": "./dist/array/chunk.d.ts",
+      "react-native": "./dist/array/chunk.js",
       "import": "./dist/array/chunk.js",
       "require": "./dist/array/chunk.cjs"
     },
     "./string/capitalize": {
       "types": "./dist/string/capitalize.d.ts",
+      "react-native": "./dist/string/capitalize.js",
       "import": "./dist/string/capitalize.js",
       "require": "./dist/string/capitalize.cjs"
     },
     "./number/clamp": {
       "types": "./dist/number/clamp.d.ts",
+      "react-native": "./dist/number/clamp.js",
       "import": "./dist/number/clamp.js",
       "require": "./dist/number/clamp.cjs"
     },
     "./network/port": {
       "types": "./dist/network/port.d.ts",
+      "react-native": "./dist/network/port.js",
       "import": "./dist/network/port.js",
       "require": "./dist/network/port.cjs"
     },
     "./sleep/sleep": {
       "types": "./dist/sleep/sleep.d.ts",
+      "react-native": "./dist/sleep/sleep.js",
       "import": "./dist/sleep/sleep.js",
       "require": "./dist/sleep/sleep.cjs"
     },
     "./jwt/jwt": {
       "types": "./dist/jwt/jwt.d.ts",
+      "react-native": "./dist/jwt/jwt.js",
       "import": "./dist/jwt/jwt.js",
       "require": "./dist/jwt/jwt.cjs"
     },
     "./time/time": {
       "types": "./dist/time/time.d.ts",
+      "react-native": "./dist/time/time.js",
       "import": "./dist/time/time.js",
       "require": "./dist/time/time.cjs"
     },
     "./utils/environment": {
       "types": "./dist/utils/environment.d.ts",
+      "react-native": "./dist/utils/environment.js",
       "import": "./dist/utils/environment.js",
       "require": "./dist/utils/environment.cjs"
     }
