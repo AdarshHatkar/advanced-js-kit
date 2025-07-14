@@ -60,14 +60,28 @@ Currently, there are no browser-only modules in this library.
 
 ### Safe Universal Usage
 ```javascript
+// Universal utilities (work everywhere) - Main export
 import { chunk, capitalize, clamp, sleep, convertToSeconds } from 'advanced-js-kit';
 
-// These work everywhere
+// These work in Node.js, Browser, and Web Workers
 const chunks = chunk([1, 2, 3, 4, 5], 2);
 const title = capitalize('hello world');
 const clamped = clamp(10, 0, 5);
 await sleep({ seconds: 1 });
 const seconds = convertToSeconds({ minutes: 5 });
+```
+
+### Platform-Specific Usage
+```javascript
+// Node.js-only utilities (recommended approach)
+import { isPortInUse, jwtSign, chunk, capitalize } from 'advanced-js-kit/node';
+
+// Browser-optimized imports (future-proof)
+import { chunk, capitalize, clamp, sleep } from 'advanced-js-kit/browser';
+
+// Individual module imports (maximum tree-shaking)
+import { isPortInUse } from 'advanced-js-kit/network/port'; // Node.js only
+import { chunk } from 'advanced-js-kit/array/chunk';         // Universal
 ```
 
 ### Environment-Specific Usage
@@ -79,13 +93,15 @@ import {
 
 // Check environment before using Node.js-only features
 if (isNodeEnvironment()) {
-  const { isPortInUse } = await import('advanced-js-kit/network/port');
-  const { jwtSign } = await import('advanced-js-kit/jwt/jwt');
+  // Use Node.js-specific bundle
+  const { isPortInUse, jwtSign } = await import('advanced-js-kit/node');
   
   const portInUse = await isPortInUse(3000);
-  const token = await jwtSign({ userId: '123' }, 'secret');
+  const token = jwtSign({ userId: '123' }, 'secret');
 } else {
-  console.log('Network and JWT utilities require Node.js');
+  // Use browser-compatible bundle
+  console.log('Using browser-compatible features only');
+  const { chunk, capitalize } = await import('advanced-js-kit/browser');
 }
 ```
 
@@ -105,16 +121,24 @@ try {
 
 ## Tree Shaking Support
 
-The library supports tree shaking, so you can import only the modules you need:
+The library supports tree shaking with three import strategies:
 
 ```javascript
-// Import only what you need
-import { chunk } from 'advanced-js-kit/array/chunk';
-import { capitalize } from 'advanced-js-kit/string/capitalize';
+// 1. Platform-specific bundles (recommended)
+import { chunk, capitalize } from 'advanced-js-kit';           // Universal only
+import { isPortInUse, jwtSign, chunk } from 'advanced-js-kit/node';     // Node.js + Universal  
+import { chunk, capitalize, sleep } from 'advanced-js-kit/browser';   // Browser + Universal
 
-// Node.js only imports
-import { isPortInUse } from 'advanced-js-kit/network/port'; // Only works in Node.js
-import { jwtSign } from 'advanced-js-kit/jwt/jwt';           // Only works in Node.js
+// 2. Individual module imports (maximum tree-shaking)
+import { chunk } from 'advanced-js-kit/array/chunk';           // Universal
+import { capitalize } from 'advanced-js-kit/string/capitalize'; // Universal
+import { isPortInUse } from 'advanced-js-kit/network/port';    // Node.js only
+import { jwtSign } from 'advanced-js-kit/jwt/jwt';             // Node.js only
+
+// 3. Environment detection + dynamic imports
+if (isNodeEnvironment()) {
+  const { isPortInUse } = await import('advanced-js-kit/network/port');
+}
 ```
 
 ## Build Configuration

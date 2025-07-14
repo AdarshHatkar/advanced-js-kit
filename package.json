@@ -1,6 +1,6 @@
 {
   "name": "advanced-js-kit",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Modern TypeScript utility library with tree-shaking support - Array, String, Number, Network, Sleep, and JWT utilities for JavaScript and TypeScript projects",
   "keywords": [
     "typescript",
@@ -37,6 +37,12 @@
   "typings": "./dist/index.d.ts",
   "typesVersions": {
     "*": {
+      "node": [
+        "./dist/node.d.ts"
+      ],
+      "browser": [
+        "./dist/browser.d.ts"
+      ],
       "array/chunk": [
         "./dist/array/chunk.d.ts"
       ],
@@ -68,6 +74,16 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
+    },
+    "./node": {
+      "types": "./dist/node.d.ts",
+      "import": "./dist/node.js",
+      "require": "./dist/node.cjs"
+    },
+    "./browser": {
+      "types": "./dist/browser.d.ts",
+      "import": "./dist/browser.js",
+      "require": "./dist/browser.cjs"
     },
     "./array/chunk": {
       "types": "./dist/array/chunk.d.ts",

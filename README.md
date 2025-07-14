@@ -11,13 +11,14 @@ A collection of advanced JavaScript/TypeScript utility functions for modern deve
 
 ## 🌐 Environment Compatibility
 
-This library is designed to work across multiple JavaScript environments:
+This library is designed to work across multiple JavaScript environments with **platform-specific exports**:
 
-- **✅ Universal**: Array, String, Number, Sleep, Time, and Environment utilities work in **Node.js**, **Browser**, and **Web Workers**
-- **🟡 Node.js Only**: Network and JWT utilities require **Node.js** environment
-- **🔴 Browser Only**: Currently no browser-specific utilities
+- **✅ `advanced-js-kit`** - Universal utilities that work in **Node.js**, **Browser**, and **Web Workers**
+- **🟡 `advanced-js-kit/node`** - Node.js-only utilities + all universal utilities  
+- **🟢 `advanced-js-kit/browser`** - Browser-optimized utilities + all universal utilities
+- **📦 Individual imports** - `advanced-js-kit/module/function` for maximum tree-shaking
 
-> **Important**: Node.js-only modules will throw `EnvironmentError` when used in non-Node.js environments.
+> **Breaking Change (v1.1.0)**: Node.js-only modules (`network`, `jwt`) are no longer exported from the main package. Use `advanced-js-kit/node` instead.
 
 ## Features
 
@@ -51,8 +52,10 @@ bun add advanced-js-kit
 
 ### Universal Modules (Work Everywhere)
 
+For maximum compatibility, import universal modules that work in **Node.js**, **Browser**, and **Web Workers**:
+
 ```typescript
-import { chunk, capitalize, clamp, sleep } from 'advanced-js-kit';
+import { chunk, capitalize, clamp, sleep, convertToSeconds } from 'advanced-js-kit';
 
 // Array utilities
 const chunkedArray = chunk([1, 2, 3, 4, 5], 2);
@@ -68,6 +71,40 @@ const clampedNumber = clamp(15, 0, 10);
 
 // Sleep utilities
 await sleep({ seconds: 2, milliseconds: 500 }); // Sleep for 2.5 seconds
+
+// Time utilities
+const seconds = convertToSeconds({ minutes: 5, seconds: 30 });
+// Result: 330 (seconds)
+```
+
+### Node.js-Only Modules
+
+For Node.js-specific functionality (network operations, JWT handling):
+
+```typescript
+import { isPortInUse, findAvailablePort, jwtSign, jwtVerify } from 'advanced-js-kit/node';
+
+// Network utilities (Node.js only)
+const portInUse = await isPortInUse(3000);
+const availablePort = await findAvailablePort({ startPort: 8000 });
+
+// JWT utilities (Node.js only)
+const token = jwtSign({ userId: '123' }, 'your-secret-key');
+const payload = jwtVerify(token, 'your-secret-key');
+
+// Note: Universal utilities are also available from /node for convenience
+import { chunk, capitalize } from 'advanced-js-kit/node';
+```
+
+### Browser-Only Modules
+
+For browser-specific optimizations (currently same as universal, but future-proof):
+
+```typescript
+import { chunk, capitalize, clamp, sleep, convertToSeconds } from 'advanced-js-kit/browser';
+
+// Currently includes all universal utilities
+// Future browser-specific features will be added here
 ```
 
 ### Environment-Specific Usage
@@ -80,24 +117,26 @@ import {
 
 // Check environment before using Node.js-only features
 if (isNodeEnvironment()) {
-  // These modules only work in Node.js
-  const { isPortInUse } = await import('advanced-js-kit/network/port');
-  const { jwtSign } = await import('advanced-js-kit/jwt/jwt');
+  // Use Node.js-specific imports
+  const { isPortInUse } = await import('advanced-js-kit/node');
+  const { jwtSign } = await import('advanced-js-kit/node');
   
   const portInUse = await isPortInUse(3000);
-  const token = await jwtSign({ userId: '123' }, 'secret');
+  const token = jwtSign({ userId: '123' }, 'secret');
 } else {
-  console.log('Network and JWT utilities require Node.js');
+  console.log('Using browser-compatible features only');
+  // Use browser/universal imports
+  const { chunk, capitalize } = await import('advanced-js-kit/browser');
 }
 ```
 
 ### Error Handling
 
 ```typescript
-import { jwtVerify, EnvironmentError } from 'advanced-js-kit';
+import { jwtVerify, EnvironmentError } from 'advanced-js-kit/node';
 
 try {
-  const payload = await jwtVerify(token, secret);
+  const payload = jwtVerify(token, secret);
 } catch (error) {
   if (error instanceof EnvironmentError) {
     console.log(`Feature not available: ${error.message}`);
@@ -108,14 +147,24 @@ try {
 
 ### Tree-shaking Support
 
-You can also import individual functions for better tree-shaking:
+You can also import individual functions for optimal tree-shaking:
 
 ```typescript
-// Import specific functions
+// Universal utilities - individual imports
 import { chunk } from 'advanced-js-kit/array/chunk';
 import { capitalize } from 'advanced-js-kit/string/capitalize';
 import { clamp } from 'advanced-js-kit/number/clamp';
 import { sleep } from 'advanced-js-kit/sleep/sleep';
+import { convertToSeconds } from 'advanced-js-kit/time/time';
+
+// Node.js-only utilities - individual imports  
+import { isPortInUse, findAvailablePort } from 'advanced-js-kit/network/port';
+import { jwtSign, jwtVerify } from 'advanced-js-kit/jwt/jwt';
+
+// Platform-specific bundles (recommended)
+import { chunk, capitalize, clamp } from 'advanced-js-kit';        // Universal only
+import { isPortInUse, jwtSign, chunk } from 'advanced-js-kit/node';     // Node.js + Universal
+import { chunk, capitalize, sleep } from 'advanced-js-kit/browser';   // Browser + Universal
 ```
 
 ## 📋 Available Modules
