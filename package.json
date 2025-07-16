@@ -44,12 +44,13 @@
       "browser": [
         "./dist/browser.d.ts"
       ],
+      "string": [
+        "./dist/string/index.d.ts"
+      ],
       "array/chunk": [
         "./dist/array/chunk.d.ts"
       ],
-      "string/capitalize": [
-        "./dist/string/capitalize.d.ts"
-      ],
+   
       "number/clamp": [
         "./dist/number/clamp.d.ts"
       ],
@@ -89,18 +90,19 @@
       "import": "./dist/browser.js",
       "require": "./dist/browser.cjs"
     },
+    "./string": {
+      "types": "./dist/string/index.d.ts",
+      "react-native": "./dist/string/index.js",
+      "import": "./dist/string/index.js",
+      "require": "./dist/string/index.cjs"
+    },
     "./array/chunk": {
       "types": "./dist/array/chunk.d.ts",
       "react-native": "./dist/array/chunk.js",
       "import": "./dist/array/chunk.js",
       "require": "./dist/array/chunk.cjs"
     },
-    "./string/capitalize": {
-      "types": "./dist/string/capitalize.d.ts",
-      "react-native": "./dist/string/capitalize.js",
-      "import": "./dist/string/capitalize.js",
-      "require": "./dist/string/capitalize.cjs"
-    },
+
     "./number/clamp": {
       "types": "./dist/number/clamp.d.ts",
       "react-native": "./dist/number/clamp.js",
@@ -168,7 +170,9 @@
     "clean": "npx rimraf dist",
     "prepublishOnly": "npm run clean && npm run build",
     "release:patch": "npm version patch",
-    "postversion": "git push && git push --tags && npm publish"
+    "postversion": "git push && git push --tags && npm publish",
+        "link": "npm run build && npm link",
+    "unlink": "npm unlink -g advanced-js-kit"
   },
   "devDependencies": {
     "@types/jsonwebtoken": "^9.0.10",
