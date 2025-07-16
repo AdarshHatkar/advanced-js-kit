@@ -1,6 +1,6 @@
 {
   "name": "advanced-js-kit",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Modern TypeScript utility library with tree-shaking support - Array, String, Number, Network, Sleep, and JWT utilities for JavaScript and TypeScript projects",
   "keywords": [
     "typescript",
@@ -50,7 +50,6 @@
       "array/chunk": [
         "./dist/array/chunk.d.ts"
       ],
-   
       "number/clamp": [
         "./dist/number/clamp.d.ts"
       ],
@@ -102,7 +101,6 @@
       "import": "./dist/array/chunk.js",
       "require": "./dist/array/chunk.cjs"
     },
-
     "./number/clamp": {
       "types": "./dist/number/clamp.d.ts",
       "react-native": "./dist/number/clamp.js",
@@ -171,7 +169,7 @@
     "prepublishOnly": "npm run clean && npm run build",
     "release:patch": "npm version patch",
     "postversion": "git push && git push --tags && npm publish",
-        "link": "npm run build && npm link",
+    "link": "npm run build && npm link",
     "unlink": "npm unlink -g advanced-js-kit"
   },
   "devDependencies": {
