@@ -2,10 +2,10 @@
 // These modules require Node.js environment and will throw EnvironmentError in other environments
 
 // Network utilities (Node.js only)
-export * from './network/port';
+export * from './network';
 
 // JWT utilities (Node.js only)
-export * from './jwt/jwt';
+export * from './jwt';
 
 // Re-export universal utilities for convenience
 export * from '../universal';

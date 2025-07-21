@@ -28,114 +28,137 @@
     "promise-utils",
     "node",
     "browser",
-    "universal"
+    "universal",
+    "react",
+    "zustand",
+    "state-management",
+    "environment-detection",
+    "cross-platform"
   ],
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "react-native": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "typings": "./dist/index.d.ts",
+  "main": "./dist/universal/index.js",
+  "module": "./dist/universal/index.mjs",
+  "react-native": "./dist/universal/index.js",
+  "types": "./dist/universal/index.d.ts",
+  "typings": "./dist/universal/index.d.ts",
   "typesVersions": {
     "*": {
       "node": [
-        "./dist/node.d.ts"
+        "./dist/node/index.d.ts"
       ],
       "browser": [
-        "./dist/browser.d.ts"
+        "./dist/browser/index.d.ts"
+      ],
+      "react": [
+        "./dist/react/index.d.ts"
       ],
       "string": [
-        "./dist/string/index.d.ts"
+        "./dist/universal/string/index.d.ts"
       ],
-      "array/chunk": [
-        "./dist/array/chunk.d.ts"
+      "array": [
+        "./dist/universal/array/index.d.ts"
       ],
-      "number/clamp": [
-        "./dist/number/clamp.d.ts"
+      "number": [
+        "./dist/universal/number/index.d.ts"
       ],
-      "network/port": [
-        "./dist/network/port.d.ts"
+      "network": [
+        "./dist/node/network/index.d.ts"
       ],
       "sleep": [
-        "./dist/sleep/index.d.ts"
+        "./dist/universal/sleep/index.d.ts"
       ],
-      "jwt/jwt": [
-        "./dist/jwt/jwt.d.ts"
+      "jwt": [
+        "./dist/node/jwt/index.d.ts"
       ],
       "time": [
-        "./dist/time/index.d.ts"
+        "./dist/universal/time/index.d.ts"
       ],
-      "utils/environment": [
-        "./dist/utils/environment.d.ts"
+      "utils": [
+        "./dist/universal/utils/index.d.ts"
+      ],
+      "react/zustand": [
+        "./dist/react/zustand/index.d.ts"
       ]
     }
   },
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "react-native": "./dist/index.js",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "types": "./dist/universal/index.d.ts",
+      "react-native": "./dist/universal/index.js",
+      "import": "./dist/universal/index.js",
+      "require": "./dist/universal/index.cjs"
     },
     "./node": {
-      "types": "./dist/node.d.ts",
-      "react-native": "./dist/node.js",
-      "import": "./dist/node.js",
-      "require": "./dist/node.cjs"
+      "types": "./dist/node/index.d.ts",
+      "react-native": "./dist/node/index.js",
+      "import": "./dist/node/index.js",
+      "require": "./dist/node/index.cjs"
     },
     "./browser": {
-      "types": "./dist/browser.d.ts",
-      "react-native": "./dist/browser.js",
-      "import": "./dist/browser.js",
-      "require": "./dist/browser.cjs"
+      "types": "./dist/browser/index.d.ts",
+      "react-native": "./dist/browser/index.js",
+      "import": "./dist/browser/index.js",
+      "require": "./dist/browser/index.cjs"
+    },
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "react-native": "./dist/react/index.js",
+      "import": "./dist/react/index.js",
+      "require": "./dist/react/index.cjs"
     },
     "./string": {
-      "types": "./dist/string/index.d.ts",
-      "react-native": "./dist/string/index.js",
-      "import": "./dist/string/index.js",
-      "require": "./dist/string/index.cjs"
+      "types": "./dist/universal/string/index.d.ts",
+      "react-native": "./dist/universal/string/index.js",
+      "import": "./dist/universal/string/index.js",
+      "require": "./dist/universal/string/index.cjs"
     },
-    "./array/chunk": {
-      "types": "./dist/array/chunk.d.ts",
-      "react-native": "./dist/array/chunk.js",
-      "import": "./dist/array/chunk.js",
-      "require": "./dist/array/chunk.cjs"
+    "./array": {
+      "types": "./dist/universal/array/index.d.ts",
+      "react-native": "./dist/universal/array/index.js",
+      "import": "./dist/universal/array/index.js",
+      "require": "./dist/universal/array/index.cjs"
     },
-    "./number/clamp": {
-      "types": "./dist/number/clamp.d.ts",
-      "react-native": "./dist/number/clamp.js",
-      "import": "./dist/number/clamp.js",
-      "require": "./dist/number/clamp.cjs"
+    "./number": {
+      "types": "./dist/universal/number/index.d.ts",
+      "react-native": "./dist/universal/number/index.js",
+      "import": "./dist/universal/number/index.js",
+      "require": "./dist/universal/number/index.cjs"
     },
-    "./network/port": {
-      "types": "./dist/network/port.d.ts",
-      "react-native": "./dist/network/port.js",
-      "import": "./dist/network/port.js",
-      "require": "./dist/network/port.cjs"
+    "./network": {
+      "types": "./dist/node/network/index.d.ts",
+      "react-native": "./dist/node/network/index.js",
+      "import": "./dist/node/network/index.js",
+      "require": "./dist/node/network/index.cjs"
     },
     "./sleep": {
-      "types": "./dist/sleep/index.d.ts",
-      "react-native": "./dist/sleep/index.js",
-      "import": "./dist/sleep/index.js",
-      "require": "./dist/sleep/index.cjs"
+      "types": "./dist/universal/sleep/index.d.ts",
+      "react-native": "./dist/universal/sleep/index.js",
+      "import": "./dist/universal/sleep/index.js",
+      "require": "./dist/universal/sleep/index.cjs"
     },
-    "./jwt/jwt": {
-      "types": "./dist/jwt/jwt.d.ts",
-      "react-native": "./dist/jwt/jwt.js",
-      "import": "./dist/jwt/jwt.js",
-      "require": "./dist/jwt/jwt.cjs"
+    "./jwt": {
+      "types": "./dist/node/jwt/index.d.ts",
+      "react-native": "./dist/node/jwt/index.js",
+      "import": "./dist/node/jwt/index.js",
+      "require": "./dist/node/jwt/index.cjs"
     },
     "./time": {
-      "types": "./dist/time/index.d.ts",
-      "react-native": "./dist/time/index.js",
-      "import": "./dist/time/index.js",
-      "require": "./dist/time/index.cjs"
+      "types": "./dist/universal/time/index.d.ts",
+      "react-native": "./dist/universal/time/index.js",
+      "import": "./dist/universal/time/index.js",
+      "require": "./dist/universal/time/index.cjs"
     },
-    "./utils/environment": {
-      "types": "./dist/utils/environment.d.ts",
-      "react-native": "./dist/utils/environment.js",
-      "import": "./dist/utils/environment.js",
-      "require": "./dist/utils/environment.cjs"
+    "./utils": {
+      "types": "./dist/universal/utils/index.d.ts",
+      "react-native": "./dist/universal/utils/index.js",
+      "import": "./dist/universal/utils/index.js",
+      "require": "./dist/universal/utils/index.cjs"
+    },
+    "./react/zustand": {
+      "types": "./dist/react/zustand/index.d.ts",
+      "react-native": "./dist/react/zustand/index.js",
+      "import": "./dist/react/zustand/index.js",
+      "require": "./dist/react/zustand/index.cjs"
     }
   },
   "files": [
