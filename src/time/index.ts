@@ -44,10 +44,10 @@ export function convertToSeconds(options: {
 }
 
 
-export const getUnixTimeStamp = (): number => {
-    return Date.now();
+export const getUnixTimestampMs = (): number => {
+  return Date.now();
 };
 
-export const getUnixTimeStampInSeconds = (): number => {
-    return Math.floor(getUnixTimeStamp() / 1000);
+export const getUnixTimestamp = (): number => {
+  return Math.floor(getUnixTimestampMs() / 1000);
 };
