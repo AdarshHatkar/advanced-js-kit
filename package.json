@@ -179,6 +179,7 @@
   },
   "dependencies": {
     "is-port-reachable": "^4.0.0",
-    "jsonwebtoken": "^9.0.2"
+    "jsonwebtoken": "^9.0.2",
+    "zustand": "^5.0.6"
   }
 }

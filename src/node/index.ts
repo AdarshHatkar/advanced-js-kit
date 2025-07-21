@@ -8,9 +8,5 @@ export * from './network/port';
 export * from './jwt/jwt';
 
 // Re-export universal utilities for convenience
-export * from './array/chunk';
-export * from './string';
-export * from './number/clamp';
-export * from './sleep';
-export * from './time';
-export * from './utils/environment';
+export * from '../universal';
+

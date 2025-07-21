@@ -1,5 +1,5 @@
 import isPortReachable from "is-port-reachable";
-import { assertNodeEnvironment, EnvironmentError } from "../utils/environment";
+import { assertNodeEnvironment, EnvironmentError } from "../../universal/utils";
 
 /**
  * Options for port checking operations

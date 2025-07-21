@@ -1,6 +1,6 @@
 import  jsonwebtoken from "jsonwebtoken";
 import { JwtPayload, VerifyOptions, SignOptions, Secret, SignCallback } from "jsonwebtoken";
-import { assertNodeEnvironment } from "../utils/environment";
+import { assertNodeEnvironment } from "../universal/utils";
 
 /**
  * Type-safe error codes for JWT operations
