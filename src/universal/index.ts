@@ -17,5 +17,8 @@ export * from './time';
 // Environment utilities
 export * from './utils';
 
+// Type utilities
+export * from './types';
+
 // Note: Node.js-specific utilities (network/port, jwt/jwt) are now available via:
 // import { ... } from 'advanced-js-kit/node'

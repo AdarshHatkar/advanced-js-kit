@@ -76,6 +76,9 @@
       "utils": [
         "./dist/universal/utils/index.d.ts"
       ],
+      "types": [
+        "./dist/universal/types/index.d.ts"
+      ],
       "react/zustand": [
         "./dist/react/zustand/index.d.ts"
       ]
@@ -153,6 +156,12 @@
       "react-native": "./dist/universal/utils/index.js",
       "import": "./dist/universal/utils/index.js",
       "require": "./dist/universal/utils/index.cjs"
+    },
+    "./types": {
+      "types": "./dist/universal/types/index.d.ts",
+      "react-native": "./dist/universal/types/index.js",
+      "import": "./dist/universal/types/index.js",
+      "require": "./dist/universal/types/index.cjs"
     },
     "./react/zustand": {
       "types": "./dist/react/zustand/index.d.ts",

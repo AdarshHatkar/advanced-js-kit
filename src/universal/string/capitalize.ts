@@ -27,3 +27,22 @@ export function capitalizeWords(str: string): string {
   
   return str.replace(/\b\w/g, (char) => char.toUpperCase());
 }
+
+export function convertCamelToNormalCapitalized(
+    camelCaseString: string
+): string {
+    // Split the camelCase string into words
+    const words = camelCaseString
+        .replace(/([a-z])([A-Z])/g, "$1 $2")
+        .split(/[\s_]+/);
+
+    // Capitalize each word
+    const capitalizedWords = words.map(
+        (word) => word.charAt(0).toUpperCase() + word.slice(1)
+    );
+
+    // Join the capitalized words to form the normal capitalized string
+    const normalCapitalizedString = capitalizedWords.join(" ");
+
+    return normalCapitalizedString;
+}
