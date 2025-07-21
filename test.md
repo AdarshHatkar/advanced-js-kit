@@ -1,0 +1,5 @@
+  // "main": "./dist/universal/index.js",
+  // "module": "./dist/universal/index.js",
+  // "react-native": "./dist/universal/index.js",
+  // "types": "./dist/universal/index.d.ts",
+  // "typings": "./dist/universal/index.d.ts",
