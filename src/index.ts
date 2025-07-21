@@ -9,10 +9,10 @@ export * from './string';
 export * from './number/clamp';
 
 // Sleep utility
-export * from './sleep/sleep';
+export * from './sleep';
 
 // Time utilities
-export * from './time/time';
+export * from './time';
 
 // Environment utilities
 export * from './utils/environment';

@@ -56,14 +56,14 @@
       "network/port": [
         "./dist/network/port.d.ts"
       ],
-      "sleep/sleep": [
-        "./dist/sleep/sleep.d.ts"
+      "sleep": [
+        "./dist/sleep/index.d.ts"
       ],
       "jwt/jwt": [
         "./dist/jwt/jwt.d.ts"
       ],
-      "time/time": [
-        "./dist/time/time.d.ts"
+      "time": [
+        "./dist/time/index.d.ts"
       ],
       "utils/environment": [
         "./dist/utils/environment.d.ts"
@@ -113,11 +113,11 @@
       "import": "./dist/network/port.js",
       "require": "./dist/network/port.cjs"
     },
-    "./sleep/sleep": {
-      "types": "./dist/sleep/sleep.d.ts",
-      "react-native": "./dist/sleep/sleep.js",
-      "import": "./dist/sleep/sleep.js",
-      "require": "./dist/sleep/sleep.cjs"
+    "./sleep": {
+      "types": "./dist/sleep/index.d.ts",
+      "react-native": "./dist/sleep/index.js",
+      "import": "./dist/sleep/index.js",
+      "require": "./dist/sleep/index.cjs"
     },
     "./jwt/jwt": {
       "types": "./dist/jwt/jwt.d.ts",
@@ -125,11 +125,11 @@
       "import": "./dist/jwt/jwt.js",
       "require": "./dist/jwt/jwt.cjs"
     },
-    "./time/time": {
-      "types": "./dist/time/time.d.ts",
-      "react-native": "./dist/time/time.js",
-      "import": "./dist/time/time.js",
-      "require": "./dist/time/time.cjs"
+    "./time": {
+      "types": "./dist/time/index.d.ts",
+      "react-native": "./dist/time/index.js",
+      "import": "./dist/time/index.js",
+      "require": "./dist/time/index.cjs"
     },
     "./utils/environment": {
       "types": "./dist/utils/environment.d.ts",

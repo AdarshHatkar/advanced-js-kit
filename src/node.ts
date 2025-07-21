@@ -9,8 +9,8 @@ export * from './jwt/jwt';
 
 // Re-export universal utilities for convenience
 export * from './array/chunk';
-export * from './string/capitalize';
+export * from './string';
 export * from './number/clamp';
-export * from './sleep/sleep';
-export * from './time/time';
+export * from './sleep';
+export * from './time';
 export * from './utils/environment';
