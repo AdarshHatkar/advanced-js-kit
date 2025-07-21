@@ -7,6 +7,4 @@ export * from './network';
 // JWT utilities (Node.js only)
 export * from './jwt';
 
-// Re-export universal utilities for convenience
-export * from '../universal';
 
